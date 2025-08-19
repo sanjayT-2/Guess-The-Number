@@ -1,0 +1,33 @@
+The System generated a random number from 1 to 10 , you have 5 chance to find the correct number that the system has generated. If you find it in the given 5 chance you won the game. If you not finf the number within the given chances you lost the game.
+
+<h1>Guess The Number From 1 to 9</h1>
+<input id="num1">
+<button onclick="check()">Check</button>
+<p id="result">You are Wrong/Right</p>
+<p id="score">Chance:5</p>
+<script>
+    var guess = document.getElementById("num1")
+    var result = document.getElementById("result")
+    var score = document.getElementById("score")
+    var random_number = Math.floor(Math.random()*10)+1
+    var chance = 5
+
+    function check(){
+
+        var enter = guess.value
+        if(random_number==enter){
+            console.log("Right")
+            result.textContent = "Right"
+            alert("You Won...")
+        }
+        else{
+            chance = chance-1
+            if(chance==0){
+                alert("You lost...")
+            }
+            score.textContent = "Chance: " + chance;
+
+            console.log("Wrong")
+        }
+    }
+</script>
